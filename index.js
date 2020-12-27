@@ -9,7 +9,9 @@ const notification_options = {
     timeToLive: 60 * 60 * 24
   };
 const app=express();
-app.use(express.json());
+const bodyParser = require('body-parser');
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.post("/notify",(req,res)=>{
   const {name,userId,photoUrl,message,token}=req.body;
     admin.messaging().sendToDevice(token,{
