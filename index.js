@@ -11,6 +11,7 @@ const notification_options = {
 const app=express();
 app.use(express.json());
 app.post("/notify",(req,res)=>{
+  console.log(req.body);
   const {name,userId,photoUrl,message,token}=req.body;
     admin.messaging().sendToDevice(token,{
         data:{userId:userId,name:name,photoUrl:photoUrl,click_action: "FLUTTER_NOTIFICATION_CLICK"},
