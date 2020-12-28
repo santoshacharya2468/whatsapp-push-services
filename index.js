@@ -18,9 +18,10 @@ app.post("/notify",(req,res)=>{
     admin.messaging().sendToDevice(token,{
         data:{userId:userId,name:name,photoUrl:photoUrl,click_action: "FLUTTER_NOTIFICATION_CLICK"},
         notification:{
-            title:`message from ${name}`,
+            title:`${name}`,
             sound:"default",
             body:message,
+            badge:"1",
             tag:userId,
         }
     },notification_options);
